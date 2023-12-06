@@ -1,0 +1,4 @@
+1. For the website to be able to show live data/plot I used Flask which I installed via
+"pip install Flask".
+2. For handle the communication between my Python script and the browser I used a Websocket server
+which I installed via "pip install websockets"

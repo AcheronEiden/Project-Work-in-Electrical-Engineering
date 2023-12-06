@@ -1,0 +1,20 @@
+SenderCode is the Arduino Code fro the device connected with the heart monitor(s).
+It takes the values and sends them via bluetooth to the ReceiverArduino that uses ReceiverCode
+to read the data, plot it in the serial monitor.
+
+At the same the python code PlotLiveData.py will read the data from the serial monitor, and use
+it to plot the two different ECG voltages as a function of the timestamp that the ReceiverCode will
+keep inventory of. The used PlotLiveData.py code uses the serial (cmd: pip install pyserial) package
+that makes it possible to plot the data live and thus show us real life readings.
+
+SaveDataIntoCSVandPlotPastData is a folder that have an old ReceiverCode that only saved the data into
+a csv file (using PuTTY software) so that OldPlotCode.py plotted the lead1 vs lead2 as a function of
+the timestamp kept as inventory.
+
+Logging.csv is a .csv file that will have the lead1 vs lead2 data as a function of time.
+We used PuTTY to save the plot values in the .csv file.
+ExtraLogging.txt is a simple .txt file that we used to store interesting data.
+
+The folder website contains code for creating a website to view the ECG plots gotten from
+PlotLiveData.py. PlotLiveDataBrowser.py is a python file that I use to try to get the website
+to show the live readings of the plot.

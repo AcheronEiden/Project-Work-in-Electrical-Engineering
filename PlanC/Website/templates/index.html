@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- required to handle IE (Internet Explorer) -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live ECG plot</title>
+    <!-- Include Plotly library -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    </head>
+    <body>
+        <h1>Live ECG plot for the patient Alhassan Jawad</h1>
+        <p>
+            The upper figure shows a lead1 measurement while the bottom subplot
+            shows a lead2 measurement. Both measurements are taken from the patient
+            in a resting space.
+        </p>
+        <h4>The used materials are:</h4>
+        <ul>
+            <li>AD8232 ECG heart monitor</li>
+            <ul>
+                <li>Takes the ECG voltages from the patient</li>
+                <li>Amplifies the voltages to be between 0 and 3.3V</li>
+            </ul>
+            <li>Arduino Nano RP2040 Connect</li>
+            <ul>
+                <li>Reads the voltages from the AD8232</li>
+                <li>Converts the voltages to digital values</li>
+                <li>Acts as a sender unit to send the data via bluetooth</li>
+            </ul>
+            <li>Arduino Nano 33 BLE</li>
+            <ul>
+                <li>Acts as a receiver unit to receive the data via bluetooth</li>
+                <li>Prints the voltages in real time in the serial plotter</li>
+                <li>Starts a timestamp when the first data is received
+                    prints the timestamp using the Millis() function</li>
+            </ul>
+            <li>Python 3.11.1</li>
+            <ul>
+                <li>Used to "spy" on the serial port to receive the data (using Pyserial 3.5)</li>
+                <li>Plots the data in real time using the matplotlib library (using Matplotlib 3.6.9)</li>
+            </ul>
+        </ul>
+        <h4>The plot:</h4>
+        <div id="live-plot"></div>
+        <script src="LiveData.js"></script>
+    </body>
+</html>
